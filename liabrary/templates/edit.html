@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-compatible" content="ie-edge">
+	<title>Edit Books Page</title>
+
+</head>
+<body>
+<center>
+	<h1>Edit and update Books Records</h1>
+	<form method='POST' action="/update/{{books.id}}">
+	{% csrf_token %}
+	<table border=1>
+	<tr>
+		<td>Book Id</td>
+		<td><input type="text" name="id" value={{books.id}} readonly></td>
+	</tr>
+	<tr>
+		<td>Book Name</td>
+		<td><input type="text" name="name" value={{books.name}}></td>
+	</tr>
+
+	<tr>
+		<td>Price</td>
+		<td><input type="text" name="price" value={{books.price}}></td>
+	</tr>
+	<tr>
+		<td>Author</td>
+		<td><input type="text" name="Author" value={{books.Author}}></td>
+	</tr>
+	<tr>
+		<td>Quantity</td>
+		<td><input type="text" name="Quantity" value={{books.Quantity}}></td>
+	</tr>
+	</table>
+	<input type="submit" value="update"/> 
+	<a href="{% url 'display' %}">Back to Home Page</a>
+	{% if messages %}
+		{% for message in messages%}
+			<h2 style="color:green;">{{message}}</h2>
+		{% endfor %}
+		{% endif %}
+
+	</form>
+</center>
+</body>

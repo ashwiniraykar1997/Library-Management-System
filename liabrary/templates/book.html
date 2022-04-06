@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-compatible" content="ie-edge">
+	<title>Book Information page</title>
+
+</head>
+ {% block content %}
+
+<body>
+		<h1>create or insert new record into mysql</h1>
+		<form method="POST" action="book">
+		{% csrf_token %}
+		Book Name &nbsp;&nbsp;:<input type="text" placeholder="Enter Book Name" name="name" maxlength="4" required/></br></br>
+		Price &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="text" placeholder="Enter Book Price" name="price" maxlength="4" required/></br></br>
+		Author &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="text" placeholder="Enter Book Author" name="Author" maxlength="4" required/></br></br>
+		Stock &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<input type="text" placeholder="Enter Book Stock" name="Quantity" maxlength="4" required/></br></br>
+		<div>
+			<input type="submit" value="Insert record"/>
+		</div>
+		
+		{% if messages %}
+		{% for message in messages%}
+			<h2 style="color:green;">{{message}}</h2>
+		{% endfor %}
+		{% endif %}
+		</form>
+</body>
+{% endblock %}
+</html>

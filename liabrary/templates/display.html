@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-compatible" content="ie-edge">
+	<title>Display page</title>
+
+</head>
+ {% block content %}
+
+<body>
+		{% if messages %}
+		{% for message in messages%}
+			<h2 style="color:green;">{{message}}</h2>
+		{% endfor %}
+		{% endif %}
+
+			
+		<h1>Display the records</h1>
+		<form method="POST" action="book">
+		{% csrf_token %}
+		<table border=1>
+		
+		<tr>
+			<th>Book Id</th>
+			<th>Book Name</th>
+			<th>Price</th>
+			<th>Author</th>
+			<th>Quantity</th>
+		</tr>
+		{% for displaybook in books %}
+		<tr>
+			<td>{{displaybook.id}}</td>
+			<td>{{displaybook.name}}</td>
+			<td>{{displaybook.price}}</td>
+			<td>{{displaybook.Author}}</td>
+			<td>{{displaybook.Quantity}}</td>
+			<td><a class="nav-link scrollto" href="/edit/{{displaybook.id}}">Edit</a></td>
+			<td><a class="nav-link scrollto" href="/delete/{{displaybook.id}}" onclick="return confirm('Are you sure want to delete the record?')">Delete</a></td>
+		</tr>
+		{% endfor %}
+		</table>
+
+		
+		</form>
+</body>
+{% endblock %}
+</html>

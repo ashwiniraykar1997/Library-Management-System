@@ -1,0 +1,41 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=divice-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-compatible" content="ie-edge">
+	<title>Home Page</title>
+	 <link rel="stylesheet" type="text/css" href="{% static 'assests/css/style.css' %}" />
+
+</head>
+<STYLE>A 
+	{text-decoration: none;} 
+</STYLE>
+<body bgcolor="cyan">
+	<center class="centered">
+		<div>
+			<nav class="navbar">
+				<ul>
+					<center>Hello,{{user.first_name}}<center>
+					<a class="text-decoration-none" href="#hero">Home</a>
+					<a class="nav-link scrollto" href="register">Register</a>
+					<a class="nav-link scrollto" href="login">Login</a>
+					<a class="nav-link scrollto" href="logout">Logout</a>	
+					<a class="nav-link scrollto" href="book">Books</a>
+				
+				
+				</ul>
+			</nav>
+		</div>
+	</center>
+
+	<div class="body-content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+
+</body>
+</html>
